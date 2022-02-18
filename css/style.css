@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f05a1e;
+    --header-color: #d2c8be;
+    --link-color: #f05a1e;
+    --link-color-visited: #a52716;
+    --link-color-active: #EB0909;
+    --primary-font: 'Oxygen', sans-serif;
+    --font-weight: 300;
+    --font-size: 16px;
+    --text-color: #000;
+  }
+  body {
+    background-color:var(--header-color);
+    font-family:var(--primary-font);
+    font-weight:var(--font-weight);
+    font-size:var(--font-size);
+    line-height: 1.6;
+    color:var(--text-color);
+   }
