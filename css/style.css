@@ -18,4 +18,10 @@ body {
   line-height: 1.6;
   color:var(--text-color);
  }
- 
+
+.pokemon-list {
+  text-align: center;
+}
+.navbar {
+  background-color:#fafafae1
+}

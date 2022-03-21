@@ -1,28 +1,18 @@
+//Start of IIFE
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  
-//adds a pokemon to the list
-  function add(pokemon) {
-      if (
-        typeof pokemon === "object" &&
-        "name" in pokemon
-      ) {
-        pokemonList.push(pokemon);
-      } else {
-        console.log("pokemon is not correct");
-      }
-    }
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15';
 
-  //gets the pokemon list
+//add new pokemon to pokemonList
+function add(pokemon) {
+  // "add" function adds pokemon to the "pokemonList" via the "push" function
+  pokemonList.push(pokemon);
+}
+//return all pokemons
   function getAll() {
-      return pokemonList;
+    return pokemonList;
   }
-
-  function add(pokemon) {
-      pokemonList.push(pokemon);
-  }
-
+  
   //creates a button list of pokemon
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
@@ -73,12 +63,24 @@ let pokemonRepository = (function () {
     }
 
     function showDetails(item) {
-      pokemonRepository.loadDetails(item).then(function () {
+    loadDetails(item).then(function () {
        //console.log(item);
         showModal(item); // once you updated this one the modal appeared on screen on Pokemon click
       });
     }
-//creating a modal to overlay pokemon details on page
+
+    function findPokemon(searchName) {
+      // Clear all the buttons on the page when user types in search box
+      document.querySelector('.pokemon-list').empty();
+  
+      // Add pokemon buttons for which the name includes the search string
+      repository.forEach((pokemon) => {
+        if (properCasing(pokemon.name).indexOf(properCasing(searchName)) > -1) {
+          addListItem(pokemon);
+        }
+      });
+    }
+        //creating a modal to overlay pokemon details on page
 //specifying a title and content for the Modal
 function showModal(item) {
 
@@ -101,65 +103,15 @@ function showModal(item) {
   modalBody.appendChild(imageElement);
   
   }
-      // Clear all existing modal content
-      /*modalContainer.innerHTML = '';
-    
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-
-      
-      closeButtonElement.addEventListener('click', hideModal); 
-    
-      let titleElement = document.createElement('h1'); // title =  pokemon.name
-      titleElement.innerText = item.name;
-    
-      let contentElement = document.createElement('p');
-      contentElement.innerText = item.height;
-
-      let imageElement = document.createElement('img');
-      imageElement.setAttribute ("src", item.imageUrl);
-    
-      modal.appendChild(closeButtonElement);
-      modal.appendChild(titleElement);
-      modal.appendChild(contentElement);
-      modal.appendChild(imageElement);
-      modalContainer.appendChild(modal);
-    
-      modalContainer.classList.add('is-visible');
-    }*/
-  
-
-
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();  
-      }
-    });
-
-    modalContainer.addEventListener('click', (e) => {
-      // Since this is also triggered when clicking INSIDE the modal
-      // We only want to close if the user clicks directly on the overlay
-      let target = e.target;
-      if (target === modalContainer) {
-        hideModal();
-      }
-    });
-
 
   return {
       add: add,
       getAll: getAll,
       addListItem: addListItem,
-      showDetails: showDetails,
       loadList: loadList,
       loadDetails: loadDetails,
-      showModal: showModal // call back the modal as all previous functions
+      showDetails: showDetails,
+      findPokemon: findPokemon
   };
 })();
 

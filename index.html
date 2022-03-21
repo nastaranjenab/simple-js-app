@@ -14,10 +14,19 @@
 </head>
 
 <body>
-
+  <header class="page-header">
+    <nav class="navbar">
+      <a class="navbar-brand" href="index.html">
+        <img src="./img/pokemon.png" width="50" height="50" class="d-inline-block align-top" alt="" />
+     Pokemon </a>
+    <!-- Search Form within Navigation Bar -->
+     <form class="form-inline">
+ <input class="form-control rounded" id="myInput" type="search" placeholder="Search for Pokemon..." aria-label="Search"/>
+    </form>
+    </nav>
+  </header>
+<ul class='pokemon-list list-group'> </ul>
 <ul class='pokemon-list'></ul>
-<!-- this part has been removeed for this exercice try first with, then without'></div> -->
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -59,6 +68,7 @@ crossorigin="anonymous"
   <script src="js/promise-polyfill.js"></script>
   <script src="js/scripts.js"></script>
   <script src="js/fetch.umd.js"></script>
+
 </body>
 
 </html>
