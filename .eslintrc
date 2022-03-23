@@ -1,0 +1,17 @@
+{
+    "env": {
+        "es6": true,
+        "browser": true,
+        "eslint.lintTask.enable":true
+    },
+    "extends": [
+        "eslint:recommended",
+        "eslint:lint whole folder"
+     
+    ],
+    "rules": {
+        "quotes": ["error", "single"],
+        "no-empty-pattern": "error",
+        "no-empty": "error"
+    }
+}
