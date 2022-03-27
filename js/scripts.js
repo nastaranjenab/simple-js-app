@@ -26,7 +26,7 @@ function add(pokemon) {
     button.setAttribute('data-toggle', 'modal');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
-    button.addEventListener("click", function(event) {
+    button.addEventListener("click", function() {
     showDetails(pokemon);
     });
     }
