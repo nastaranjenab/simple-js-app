@@ -69,16 +69,17 @@ function add(pokemon) {
       });
     }
 
-    function findPokemon(searchName) {
+    function findPokemon() {
       // Clear all the buttons on the page when user types in search box
       document.querySelector('.pokemon-list').empty();
   
       // Add pokemon buttons for which the name includes the search string
-      repository.forEach((pokemon) => {
+      /*repository.forEach((pokemon) => {
         if (properCasing(pokemon.name).indexOf(properCasing(searchName)) > -1) {
           addListItem(pokemon);
+          
         }
-      });
+      });*/
     }
         //creating a modal to overlay pokemon details on page
 //specifying a title and content for the Modal
